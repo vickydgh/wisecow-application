@@ -58,6 +58,11 @@ The CI/CD pipeline is configured using GitHub Actions. It automatically builds a
 
 ![GitHub Actions workflow run](Images/5.png)
 
+## TLS Encryption
+Enabled secure HTTPS access for the Wisecow application by configuring Kubernetes Ingress with a TLS secret and a self-signed SSL certificate.
+
+![TLS Encryption](Images/6.png)
+
 ## Contributing
 1. Fork the repository.
 2. Create a new branch for your feature.

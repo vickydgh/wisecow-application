@@ -1,28 +1,69 @@
-# Cow wisdom web server
+# WiseCow Project
+
+## Overview
+The WiseCow Project is a containerized web application that delivers cow wisdom using the `fortune` and `cowsay` commands. It is fully automated with Docker for containerization and CI/CD pipelines for seamless deployment.
+
+## Purpose
+We built this project to demonstrate automation, portability, reproducibility, and CI/CD deployment practices. It showcases how to containerize a simple application, set up continuous integration and deployment, and enable secure TLS communication in a Kubernetes environment.
+
+## Key Features
+- **Dockerized App**: Fully containerized using Docker for easy deployment and portability.
+- **CI/CD Pipeline**: Automated build, test, and deployment using GitHub Actions.
+- **TLS-Ready**: Configured for secure TLS communication.
+- **Reproducible Environment**: Consistent setup across different environments using Docker and Kubernetes.
+
+## Technologies Used
+- **Docker**: For containerization.
+- **Bash**: Scripting for the application logic.
+- **GitHub Actions**: For CI/CD automation.
+- **Docker Hub**: For image registry.
+- **Kubernetes**: For orchestration and deployment.
+
+## Project Workflow
+1. **Code Push**: Push changes to the repository.
+2. **Build**: GitHub Actions triggers a build of the Docker image.
+3. **Push**: The built image is pushed to Docker Hub.
+4. **Deploy**: The image is deployed to the Kubernetes cluster via manifests.
 
 ## Prerequisites
+- Docker installed on your machine.
+- A GitHub account with access to the repository.
+- A Docker Hub account for image storage.
+- Kubernetes cluster (e.g., Minikube, GKE) for deployment.
 
-```
-sudo apt install fortune-mod cowsay -y
-```
+## Installation and Setup
+1. Clone the repository:
+   ```
+   git clone https://github.com/your-username/wisecow.git
+   cd wisecow
+   ```
 
-## How to use?
+2. Build the Docker image:
+   ```
+   docker build -t wisecow .
+   ```
 
-1. Run `./wisecow.sh`
-2. Point the browser to server port (default 4499)
+3. Run the container:
+   ```
+   docker run -p 4499:4499 wisecow
+   ```
 
-## What to expect?
-![wisecow](https://github.com/nyrahul/wisecow/assets/9133227/8d6bfde3-4a5a-480e-8d55-3fef60300d98)
+## Usage
+Run the script inside the container to start the web server. Point your browser to `http://localhost:4499` or the configured domain.
 
-# Problem Statement
-Deploy the wisecow application as a k8s app
+![wisecow.local output](Images/2.png)
 
-## Requirement
-1. Create Dockerfile for the image and corresponding k8s manifest to deploy in k8s env. The wisecow service should be exposed as k8s service.
-2. Github action for creating new image when changes are made to this repo
-3. [Challenge goal]: Enable secure TLS communication for the wisecow app.
+## CI/CD Pipeline
+The CI/CD pipeline is configured using GitHub Actions. It automatically builds and pushes Docker images on code changes, then deploys to Kubernetes.
 
-## Expected Artifacts
-1. Github repo containing the app with corresponding dockerfile, k8s manifest, any other artifacts needed.
-2. Github repo with corresponding github action.
-3. Github repo should be kept private and the access should be enabled for following github IDs: nyrahul
+![GitHub Actions workflow run](Images/5.png)
+
+## Contributing
+1. Fork the repository.
+2. Create a new branch for your feature.
+3. Commit your changes.
+4. Push to the branch.
+5. Open a pull request.
+
+## License
+This project is licensed under the MIT License.

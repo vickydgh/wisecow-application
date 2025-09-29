@@ -34,7 +34,7 @@ We built this project to demonstrate automation, portability, reproducibility, a
 ## Installation and Setup
 1. Clone the repository:
    ```
-   git clone https://github.com/your-username/wisecow.git
+   git clone https://github.com/vickydgh/wisecow.git
    cd wisecow
    ```
 

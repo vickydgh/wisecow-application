@@ -28,11 +28,6 @@ jobs:
       with:
         version: 'v1.28.0'
 
-    - name: Configure Kubeconfig
-      run: |
-        mkdir -p $HOME/.kube
-        echo "${{ secrets.KUBE_CONFIG_DATA }}" | base64 --decode > $HOME/.kube/config
-
     - name: Deploy to Kubernetes
       run: |
         kubectl apply -f k8s/wisecow-deployment.yaml

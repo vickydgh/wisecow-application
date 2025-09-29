@@ -3,6 +3,11 @@ kind: Ingress
 metadata:
   name: wisecow-ingress
 spec:
+  ingressClassName: nginx
+  tls:
+  - hosts:
+    - wisecow.local
+    secretName: wisecow-tls
   rules:
   - host: wisecow.local
     http:

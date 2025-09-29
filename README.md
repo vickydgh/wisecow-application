@@ -63,6 +63,11 @@ Enabled secure HTTPS access for the Wisecow application by configuring Kubernete
 
 ![TLS Encryption](Images/6.png)
 
+## Challenges
+1. TLS Encryption
+2. CrashLoopBackOff
+3. Tried to Deploy it in EKS but Failed
+
 ## Contributing
 1. Fork the repository.
 2. Create a new branch for your feature.

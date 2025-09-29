@@ -23,13 +23,13 @@ jobs:
         docker build -t ${{ secrets.DOCKERHUB_USERNAME }}/wisecow:latest .
         docker push ${{ secrets.DOCKERHUB_USERNAME }}/wisecow:latest
 
-    - name: Set up kubectl
-      uses: azure/setup-kubectl@v3
-      with:
-        version: 'v1.28.0'
+    # - name: Set up kubectl
+    #   uses: azure/setup-kubectl@v3
+    #   with:
+    #     version: 'v1.28.0'
 
-    - name: Deploy to Kubernetes
-      run: |
-        kubectl apply -f k8s/wisecow-deployment.yaml
-        kubectl apply -f k8s/wisecow-service.yaml
-        kubectl rollout status deployment/wisecow-deployment
+    # - name: Deploy to Kubernetes
+    #   run: |
+    #     kubectl apply -f k8s/wisecow-deployment.yaml
+    #     kubectl apply -f k8s/wisecow-service.yaml
+    #     kubectl rollout status deployment/wisecow-deployment
